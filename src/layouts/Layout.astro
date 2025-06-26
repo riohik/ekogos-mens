@@ -1,3 +1,8 @@
+---
+import './src/styles/global.css'
+import HamburgerMenu from '../components/HamburgerMenu.tsx';
+---  
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -8,6 +13,7 @@
 		<title>Astro Basics</title>
 	</head>
 	<body>
+		<HamburgerMenu client:load />
 		<slot />
 	</body>
 </html>

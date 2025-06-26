@@ -1,6 +1,5 @@
----
-import TopMain from '../components/TopMain.astro';
-import TopSlider from '../components/TopSlider.tsx';
+﻿---
+import Director from '../components/director.astro';
 import Layout from '../layouts/Layout.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -8,8 +7,5 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-	<TopMain />
-	<div class="my-12">
-		<TopSlider client:load />
-	</div>
+	<Director />
 </Layout>

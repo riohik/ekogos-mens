@@ -1,0 +1,37 @@
+---
+const slides = [
+  '/slide/1.JPG',
+  '/slide/2.JPG',
+  '/slide/3.JPG',
+  '/slide/4.JPG',
+];
+let current = 0;
+---
+
+<div class="relative w-full max-w-2xl mx-auto rounded-2xl overflow-hidden shadow-xl border border-blue-100 bg-white">
+  <img src={slides[current]} alt={`スライド${current + 1}`} class="w-full h-64 object-cover transition-all duration-500" />
+  <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+    {slides.map((_, i) => (
+      <button
+        type="button"
+        class={`w-3 h-3 rounded-full border-2 border-[#2093f5] ${current === i ? 'bg-[#2093f5]' : 'bg-white'}`}
+        aria-label={`スライド${i + 1}`}
+        onClick={() => current = i}
+      />
+    ))}
+  </div>
+  <button
+    class="absolute top-1/2 left-2 -translate-y-1/2 bg-white/80 hover:bg-[#2093f5] hover:text-white text-[#2093f5] rounded-full p-2 shadow transition"
+    aria-label="前へ"
+    onClick={() => current = (current - 1 + slides.length) % slides.length}
+  >
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"/></svg>
+  </button>
+  <button
+    class="absolute top-1/2 right-2 -translate-y-1/2 bg-white/80 hover:bg-[#2093f5] hover:text-white text-[#2093f5] rounded-full p-2 shadow transition"
+    aria-label="次へ"
+    onClick={() => current = (current + 1) % slides.length}
+  >
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+  </button>
+</div> 
